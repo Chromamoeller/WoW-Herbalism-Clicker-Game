@@ -2,142 +2,170 @@
   <div class="content">
     <FlowerCard
       name="Friedensblume"
-      :isVisible="true"
+      :level="1"
+      :isVisible="isVisible"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_flower_02.jpg"
     />
     <FlowerCard
       name="Silberblatt"
-      :isVisible="true"
+      :isVisible="isVisible"
+      :level="1"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_10.jpg"
     />
     <FlowerCard
       name="Erdwurzel"
-      :isVisible="true"
+      :isVisible="isVisible"
+      :level="2"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_07.jpg"
     />
     <FlowerCard
       name="Marguskönigskraut"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="3"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_talisman_03.jpg"
     />
     <FlowerCard
       name="Wilddornrose"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="3"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_root_01.jpg"
     />
     <FlowerCard
       name="Würgetang"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="3"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_11.jpg"
     />
     <FlowerCard
       name="Beulengras"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="4"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_01.jpg"
     />
     <FlowerCard
       name="Wildstahlblume"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="5"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_flower_01.jpg"
     />
     <FlowerCard
       name="Grabmoos"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="5"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_dust_02.jpg"
     />
     <FlowerCard
       name="Königsblut"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="6"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_03.jpg"
     />
     <FlowerCard
       name="Lebenswurz"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="6"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_root_02.jpg"
     />
     <FlowerCard
       name="Blass Blatt"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="6"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_12.jpg"
     />
     <FlowerCard
       name="Golddorn"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="6"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_15.jpg"
     />
     <FlowerCard
       name="Khadgars Schnurrbart"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="7"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_08.jpg"
     />
     <FlowerCard
       name="Winterbiss"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="7"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_flower_03.jpg"
     />
     <FlowerCard
       name="Feuerblüte"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="7"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_19.jpg"
     />
     <FlowerCard
       name="Lila Lotus"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="7"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_17.jpg"
     />
     <FlowerCard
       name="Arthas Tränen"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="8"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_13.jpg"
     />
     <FlowerCard
       name="Sonnengras"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="8"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_18.jpg"
     />
     <FlowerCard
       name="Blindkraut"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="8"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_14.jpg"
     />
     <FlowerCard
       name="Geisterpilz"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="9"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_mushroom_08.jpg"
     />
     <FlowerCard
       name="Gromsblut"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="9"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_16.jpg"
     />
     <FlowerCard
       name="Goldener Sansam"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="9"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_sansamroot.jpg"
     />
     <FlowerCard
       name="Traumblatt"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="9"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_dreamfoil.jpg"
     />
     <FlowerCard
       name="Bergsilbersalbei"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="10"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_mountainsilversage.jpg"
     />
     <FlowerCard
       name="Pestblüte"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="10"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_plaguebloom.jpg"
     />
     <FlowerCard
       name="Eiskappe"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="10"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_icecap.jpg"
     />
     <FlowerCard
       name="Schwarzer Lotus"
-      :isVisible="false"
+      :isVisible="isVisible"
+      :level="10"
       imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_blacklotus.jpg"
     />
   </div>
@@ -147,7 +175,13 @@
 import FlowerCard from "./FlowerCard.vue";
 export default {
   name: "LeftSide",
+  data() {
+    return {
+      isVisible: true,
+    };
+  },
   components: { FlowerCard },
+  methods: {},
 };
 </script>
 

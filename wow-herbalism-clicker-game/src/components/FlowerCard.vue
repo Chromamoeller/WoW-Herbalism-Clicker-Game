@@ -1,10 +1,10 @@
 <template>
-  <div v-if="isVisible" class="card-content">
+  <div v-if="level < 9" class="card-content">
     <div class="card-img">
       <img :src="imgLink" alt="" />
     </div>
     <p>{{ name }}</p>
-    <button class="btn">Sammeln</button>
+    <button class="btn" @click="doSomething">Sammeln</button>
   </div>
 </template>
 
@@ -15,10 +15,11 @@ export default {
     return {};
   },
   props: {
+    level: {
+      value: Number,
+    },
     isVisible: {
       type: Boolean,
-      required: true,
-      default: false,
     },
     imgLink: {
       type: String,
@@ -27,6 +28,7 @@ export default {
     value: Number,
     name: String,
   },
+  methods: {},
 };
 </script>
 
