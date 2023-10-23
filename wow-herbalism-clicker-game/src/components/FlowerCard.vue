@@ -30,6 +30,7 @@ export default {
     rgba(112, 112, 112, 1) 0%,
     rgba(255, 255, 255, 1) 87%
   );
+  position: relative;
   margin: 20px;
   width: 200px;
   height: 250px;
