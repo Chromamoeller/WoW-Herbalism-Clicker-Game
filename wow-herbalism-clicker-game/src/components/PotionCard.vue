@@ -55,16 +55,12 @@ export default {
 
 <style scoped>
 .potion-card-content {
-  background: rgb(112, 112, 112);
-  background: linear-gradient(
-    322deg,
-    rgba(112, 112, 112, 1) 0%,
-    rgba(255, 255, 255, 1) 87%
-  );
+  background-color: rgba(150, 150, 150, 0.2);
   position: relative;
   margin: 20px;
   width: 200px;
-  height: 250px;
+  height: 260px;
+  color: #fff;
   border-radius: 16px;
   box-shadow: 0px 0px 20px 1px black;
 }
@@ -105,6 +101,7 @@ export default {
   animation-fill-mode: forwards;
 }
 .ingredients {
+  font-size: 1.2rem;
   display: flex;
   flex-wrap: wrap;
 }

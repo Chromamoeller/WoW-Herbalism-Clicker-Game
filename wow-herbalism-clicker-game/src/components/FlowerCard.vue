@@ -1,5 +1,5 @@
 <template>
-  <div class="card-content">
+  <div v-if="isVisible" class="card-content">
     <div class="card-img">
       <img :src="imgLink" alt="" />
     </div>
@@ -11,7 +11,15 @@
 <script>
 export default {
   name: "FlowerCard",
+  data() {
+    return {};
+  },
   props: {
+    isVisible: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     imgLink: {
       type: String,
       required: true,
@@ -24,12 +32,7 @@ export default {
 
 <style scoped>
 .card-content {
-  background: rgb(112, 112, 112);
-  background: linear-gradient(
-    322deg,
-    rgba(112, 112, 112, 1) 0%,
-    rgba(255, 255, 255, 1) 87%
-  );
+  background-color: rgba(150, 150, 150, 0.2);
   position: relative;
   margin: 20px;
   width: 200px;
