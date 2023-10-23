@@ -125,7 +125,12 @@ export default {
 
 <style scoped>
 .content {
-  background-color: rgb(193, 193, 193);
+  background: rgb(112, 112, 112);
+  background: linear-gradient(
+    322deg,
+    rgba(112, 112, 112, 1) 0%,
+    rgba(255, 255, 255, 1) 87%
+  );
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -134,5 +139,18 @@ export default {
   height: 100%;
   border-right: 10px solid black;
   overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #969696;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #474747;
 }
 </style>
