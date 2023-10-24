@@ -1,10 +1,11 @@
 <template>
-  <div v-if="level < 9" class="card-content">
+  <div v-if="level <= player.level" class="card-content">
     <div class="card-img">
       <img :src="imgLink" alt="" />
     </div>
     <p>{{ name }}</p>
-    <button class="btn" @click="doSomething">Sammeln</button>
+    <button class="btn" @click="makeMeWhite">Sammeln</button>
+    <div :class="{ overlay: isWhite }"></div>
   </div>
 </template>
 
@@ -12,7 +13,9 @@
 export default {
   name: "FlowerCard",
   data() {
-    return {};
+    return {
+      isWhite: false,
+    };
   },
   props: {
     level: {
@@ -27,8 +30,19 @@ export default {
     },
     value: Number,
     name: String,
+    player: {
+      type: Object,
+    },
   },
-  methods: {},
+  methods: {
+    makeMeWhite() {
+      this.isWhite = true;
+      console.log("Yeha");
+      setTimeout(() => {
+        this.isWhite = false;
+      }, 2000);
+    },
+  },
 };
 </script>
 
@@ -75,6 +89,16 @@ p {
   font-size: 1.6rem;
   border-radius: 0 0 16px 16px;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  animation-name: lower;
+  animation-duration: 2s;
+}
 
 .card-content:hover {
   animation-name: scaling;
@@ -85,6 +109,15 @@ p {
 .card-content:not(:hover) {
   animation: unhoverEffect 0.5s forwards;
   /* Starte die Ausblendanimation beim Verlassen des Hovers */
+}
+
+@keyframes lower {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
 }
 
 @keyframes unhoverEffect {
