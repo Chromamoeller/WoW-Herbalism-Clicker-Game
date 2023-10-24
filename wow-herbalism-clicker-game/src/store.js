@@ -3,8 +3,10 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state: {
+    levelRangeClassic: [25, 50, 75, 100, 150, 225, 300],
+    currentIndex: 0,
     player: {
-      level: 10,
+      level: 1,
       herbs: {
         Friedensblume: 0,
         Silberblatt: 0,
@@ -35,12 +37,20 @@ const store = createStore({
         Eiskappe: 0,
         SchwarzerLotus: 0,
       },
+      herbalismClassicLevel: 1,
     },
   },
   mutations: {
     collectHerbs(state, herb) {
       state.player.herbs[herb]++;
-      console.log(herb);
+      if (
+        state.player.herbalismClassicLevel >=
+        state.levelRangeClassic[state.currentIndex]
+      ) {
+        state.player.level++;
+        state.currentIndex++;
+      }
+      state.player.herbalismClassicLevel++;
     },
   },
   actions: {
