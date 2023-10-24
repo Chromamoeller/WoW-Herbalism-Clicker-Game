@@ -4,7 +4,7 @@
       <img :src="imgLink" alt="" />
     </div>
     <p>{{ name }}</p>
-    <button class="btn" @click="makeMeWhite">Sammeln</button>
+    <button class="btn" @click="countUp">Sammeln</button>
     <div :class="{ overlay: isWhite }"></div>
   </div>
 </template>
@@ -35,6 +35,18 @@ export default {
     },
   },
   methods: {
+    countUp() {
+      for (let herb in this.player.herbs) {
+        if (herb == this.name.replace(" ", "")) {
+          const toEmit = {
+            herb: herb,
+            count: 1,
+          };
+          this.$emit("childData", toEmit);
+        }
+      }
+    },
+
     makeMeWhite() {
       this.isWhite = true;
       console.log("Yeha");
@@ -91,7 +103,7 @@ p {
 }
 .overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   width: 200px;
   height: 250px;
   background-color: rgba(255, 255, 255, 0.3);

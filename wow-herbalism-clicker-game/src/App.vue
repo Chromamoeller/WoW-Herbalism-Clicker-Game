@@ -1,5 +1,5 @@
 <template>
-  <LeftSide :player="player" />
+  <LeftSide :player="player" @collected="childData" />
   <RightSide />
 </template>
 
@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       player: {
-        level: 3,
+        level: 10,
         herbs: {
           Friedensblume: 0,
           Silberblatt: 0,
@@ -49,7 +49,16 @@ export default {
     LeftSide,
     RightSide,
   },
-  methods: {},
+  methods: {
+    childData(data) {
+      for (let herb in this.player.herbs) {
+        if (herb == data.herb) {
+          this.player.herbs[herb] += data.count;
+          console.log(this.player.herbs[herb]);
+        }
+      }
+    },
+  },
 };
 </script>
 
