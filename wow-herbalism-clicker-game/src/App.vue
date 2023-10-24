@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       player: {
-        level: 10,
+        level: 12,
         herbs: {
           Friedensblume: 0,
           Silberblatt: 0,
@@ -35,6 +35,7 @@ export default {
           Sonnengras: 0,
           Blindkraut: 0,
           Geisterpilz: 0,
+          Gromsblut: 0,
           GoldenerSansam: 0,
           Traumblatt: 0,
           Bergsilbersalbei: 0,

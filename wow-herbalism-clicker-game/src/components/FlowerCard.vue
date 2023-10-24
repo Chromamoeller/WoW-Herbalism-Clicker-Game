@@ -3,7 +3,10 @@
     <div class="card-img">
       <img :src="imgLink" alt="" />
     </div>
-    <p>{{ name }}</p>
+    <div class="dataField">
+      <p class="herbName">{{ name }}</p>
+      <p class="herbName">{{ player.herbs[name.replace(" ", "")] }}</p>
+    </div>
     <button class="btn" @click="countUp">Sammeln</button>
     <div :class="{ overlay: isWhite }"></div>
   </div>
@@ -36,6 +39,10 @@ export default {
   },
   methods: {
     countUp() {
+      this.isWhite = true;
+      setTimeout(() => {
+        this.isWhite = false;
+      }, 1000);
       for (let herb in this.player.herbs) {
         if (herb == this.name.replace(" ", "")) {
           const toEmit = {
@@ -45,14 +52,6 @@ export default {
           this.$emit("childData", toEmit);
         }
       }
-    },
-
-    makeMeWhite() {
-      this.isWhite = true;
-      console.log("Yeha");
-      setTimeout(() => {
-        this.isWhite = false;
-      }, 2000);
     },
   },
 };
@@ -80,7 +79,7 @@ export default {
 
 p {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .card-img > img {
@@ -96,20 +95,35 @@ p {
   position: absolute;
   bottom: 0px;
   border: none;
-  background-color: black;
-  color: aliceblue;
+  background: rgb(5, 226, 23);
+  background: linear-gradient(
+    322deg,
+    rgba(5, 226, 23, 0.30575980392156865) 0%,
+    rgba(255, 255, 255, 0.28895308123249297) 87%
+  );
+  color: black;
   font-size: 1.6rem;
   border-radius: 0 0 16px 16px;
 }
+.dataField {
+  color: #ffffff;
+  display: flex;
+  height: 100%;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .overlay {
   position: absolute;
   bottom: 0;
   width: 200px;
   height: 250px;
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
+  border-radius: 0 0 16px 16px;
   animation-name: lower;
-  animation-duration: 2s;
+  animation-duration: 1s;
+  cursor: not-allowed;
 }
 
 .card-content:hover {
@@ -128,7 +142,7 @@ p {
     height: 100%;
   }
   100% {
-    height: 0%;
+    height: 16%;
   }
 }
 
