@@ -1,11 +1,13 @@
 <template>
-  <div v-if="level <= player.level" class="card-content">
+  <div v-if="level <= $store.state.player.level" class="card-content">
     <div class="card-img">
       <img :src="imgLink" alt="" />
     </div>
     <div class="dataField">
       <p class="herbName">{{ name }}</p>
-      <p class="herbName">{{ player.herbs[name.replace(" ", "")] }}</p>
+      <p class="herbName">
+        {{ $store.state.player.herbs[name.replace(" ", "")] }}
+      </p>
     </div>
     <button class="btn" @click="countUp">Sammeln</button>
     <div :class="{ overlay: isWhite }"></div>
@@ -33,9 +35,6 @@ export default {
     },
     value: Number,
     name: String,
-    player: {
-      type: Object,
-    },
   },
   methods: {
     countUp() {
@@ -43,15 +42,6 @@ export default {
       setTimeout(() => {
         this.isWhite = false;
       }, 1000);
-      for (let herb in this.player.herbs) {
-        if (herb == this.name.replace(" ", "")) {
-          const toEmit = {
-            herb: herb,
-            count: 1,
-          };
-          this.$emit("childData", toEmit);
-        }
-      }
     },
   },
 };
