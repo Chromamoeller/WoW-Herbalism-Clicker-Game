@@ -4,7 +4,7 @@ import { createStore } from "vuex";
 const store = createStore({
   state: {
     player: {
-      level: 1,
+      level: 10,
       herbs: {
         Friedensblume: 0,
         Silberblatt: 0,
@@ -38,7 +38,10 @@ const store = createStore({
     },
   },
   mutations: {
-    // Mutationen, um den Zustand zu ändern
+    collectHerbs(state, herb) {
+      state.player.herbs[herb]++;
+      console.log(herb);
+    },
   },
   actions: {
     // Aktionen, um asynchrone Aufgaben auszuführen

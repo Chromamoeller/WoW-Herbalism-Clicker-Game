@@ -4,8 +4,8 @@
       <img :src="imgLink" alt="" />
     </div>
     <div class="dataField">
-      <p class="herbName">{{ name }}</p>
-      <p class="herbName">
+      <p class="">{{ name }}</p>
+      <p class="">
         {{ $store.state.player.herbs[name.replace(" ", "")] }}
       </p>
     </div>
@@ -98,7 +98,6 @@ p {
 .dataField {
   color: #ffffff;
   display: flex;
-  height: 100%;
   margin-top: 4px;
   flex-wrap: wrap;
   justify-content: space-evenly;
