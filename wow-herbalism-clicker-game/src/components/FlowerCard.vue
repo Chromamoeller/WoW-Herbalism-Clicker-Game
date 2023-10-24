@@ -4,12 +4,14 @@
       <img :src="imgLink" alt="" />
     </div>
     <div class="dataField">
-      <p class="">{{ name }}</p>
-      <p class="">
+      <p>{{ name }}</p>
+      <p>
         {{ $store.state.player.herbs[name.replace(" ", "")] }}
       </p>
     </div>
-    <button class="btn" @click="countUp">Sammeln</button>
+    <button class="btn" @click="unclickable" :disabled="istGesperrt">
+      Sammeln
+    </button>
     <div :class="{ overlay: isWhite }"></div>
   </div>
 </template>
@@ -20,6 +22,7 @@ export default {
   data() {
     return {
       isWhite: false,
+      istGesperrt: false,
     };
   },
   props: {
@@ -37,11 +40,17 @@ export default {
     name: String,
   },
   methods: {
-    countUp() {
-      this.isWhite = true;
-      setTimeout(() => {
-        this.isWhite = false;
-      }, 1000);
+    unclickable() {
+      if (!this.istGesperrt) {
+        this.istGesperrt = true;
+        this.isWhite = true;
+        this.$store.commit("collectHerbs", this.name.replace(" ", ""));
+
+        setTimeout(() => {
+          this.istGesperrt = false;
+          this.isWhite = false;
+        }, 1000);
+      }
     },
   },
 };
@@ -108,7 +117,7 @@ p {
   bottom: 0;
   width: 200px;
   height: 250px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(155, 255, 155, 0.3);
   border-radius: 0 0 16px 16px;
   animation-name: lower;
   animation-duration: 1s;
