@@ -1,25 +1,20 @@
 <template>
   <div class="content">
-    <PotionCard
-      name="Geringer Heiltrank"
-      imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_potion_50.jpg"
-      :ingredient1="{ name: 'Friedensblume:', count: 3 }"
-    />
-    <PotionCard
-      name="Heiltrank"
-      imgLink="https://wow.zamimg.com/images/wow/icons/large/inv_potion_51.jpg"
-      :ingredient1="{ name: 'Friedensblume', count: 1 }"
-      :ingredient2="{ name: 'Geringer Heiltrank', count: 1 }"
-    />
+    <PotionCard2 />
+    <PotionCard2 />
+    <PotionCard2 />
+    <PotionCard2 />
+    <PotionCard2 />
+    <PotionCard2 />
   </div>
 </template>
 
 <script>
-import PotionCard from "./PotionCard.vue";
+import PotionCard2 from "./PotionCard2.vue";
 
 export default {
   name: "RightSide",
-  components: { PotionCard },
+  components: { PotionCard2 },
 };
 </script>
 
@@ -29,9 +24,10 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+
   overflow-y: scroll;
   background-color: rgb(193, 193, 193);
   width: 40%;
