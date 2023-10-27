@@ -1,5 +1,5 @@
 <template>
-  <q-btn @click="testing()">Hello</q-btn>
+  <q-btn @click="testing()"></q-btn>
   <div class="content">
     <FlowerCard
       name="Friedensblume"

@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createStore } from "vuex";
+import { slowWalz } from "./data/slowWalz";
 
 const store = createStore({
   state: {
@@ -38,6 +39,9 @@ const store = createStore({
         SchwarzerLotus: 0,
       },
       herbalismClassicLevel: 1,
+    },
+    extraData: {
+      myDanceName: slowWalz,
     },
     potions: {
       smallHealPotion: {

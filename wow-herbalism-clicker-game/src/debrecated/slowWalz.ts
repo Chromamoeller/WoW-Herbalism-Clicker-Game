@@ -1,4 +1,4 @@
-import { Dances } from "./dances";
+import { Dances } from "../data/dances";
 import { Figure } from "./figure";
 
 const rfClosedChange = new Figure(
