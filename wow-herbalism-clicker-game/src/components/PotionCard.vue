@@ -1,151 +1,98 @@
 <template>
-  <div class="potion-card-content">
-    <div class="potion-card-img">
-      <img :src="imgLink" alt="" />
-    </div>
-    <div class="name">
-      <p>{{ name }}</p>
-    </div>
-    <div class="ingredients">
-      <div class="ingredient1">
-        <p class="ingredient-name">
-          {{ ingredient1.name }}
-        </p>
-        <p class="ingredient-count">
-          {{ ingredient1.count }}
-        </p>
-      </div>
-      <div class="ingredient2">
-        <p v-if="ingredient2 !== undefined" class="ingredient-name">
-          {{ ingredient2.name }}
-        </p>
-        <p v-if="ingredient2 !== undefined" class="ingredient-count">
-          {{ ingredient2.count }}
-        </p>
-      </div>
-    </div>
-    <button class="btn">Herstellen</button>
-  </div>
+  <q-card
+    class="q-pa-md text-white text-uppercase"
+    style="
+      width: 100%;
+      max-width: 250px;
+      border-radius: 25px;
+      background-color: rgba(73, 0, 156, 0.445);
+    "
+  >
+    <q-card-section>
+      <q-img round src="https://picsum.photos/600/600">
+        <q-card class="absolute-bottom-right" round>
+          {{ $store.state.potions.smallHealPotion.count }}
+        </q-card>
+      </q-img>
+    </q-card-section>
+    <q-card-section class="text-center text-h6"
+      >{{ $store.state.potions.smallHealPotion.name }}
+    </q-card-section>
+    <q-card-section class="flex row q-pa-xs text-subtitle2">
+      <q-card
+        flat
+        class="col text-center text-subtitle2"
+        style="background-color: transparent"
+      >
+        {{ $store.state.potions.smallHealPotion.ingredient1.name }}
+      </q-card>
+      <q-card
+        flat
+        class="col text-center text-subtitle2"
+        style="background-color: transparent"
+      >
+        {{ $store.state.potions.smallHealPotion.ingredient1.count }}
+      </q-card>
+    </q-card-section>
+    <q-card-section class="flex row q-pa-xs text-subtitle2">
+      <q-card
+        flat
+        class="col text-center text-subtitle2"
+        style="background-color: transparent"
+      >
+        {{ $store.state.potions.smallHealPotion.ingredient2.name }}
+      </q-card>
+      <q-card
+        flat
+        class="col text-center text-subtitle2"
+        style="background-color: transparent"
+      >
+        {{ $store.state.potions.smallHealPotion.ingredient2.count }}
+      </q-card>
+    </q-card-section>
+    <q-card-section class="flex row q-pa-xs"></q-card-section>
+
+    <q-card-section style="display: flex; justify-content: space-evenly">
+      <q-btn
+        @click="collectHerb()"
+        :disabled="cooldown"
+        style="margin: 2px"
+        glossy
+        color="purple-10"
+        label="Sammeln"
+      ></q-btn>
+      <q-btn
+        style="margin: 2px"
+        glossy
+        color="purple-10"
+        label="Verkaufen"
+      ></q-btn>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script>
 export default {
-  name: "PotionCard",
-  props: {
-    imgLink: {
-      type: String,
-      required: true,
-    },
-    value: Number,
-    name: String,
-    ingredient1: {
-      type: Object,
-      name: String,
-      count: Number,
-    },
-    ingredient2: {
-      required: false,
-      type: Object,
-      name: String,
-      count: Number,
+  setup() {
+    return {};
+  },
+  data() {
+    return {
+      cooldown: false,
+    };
+  },
+  props: {},
+  methods: {
+    collectHerb() {
+      if (!this.cooldown) {
+        this.cooldown = true;
+      }
+      setTimeout(() => {
+        this.cooldown = false;
+      }, 1000);
     },
   },
 };
 </script>
 
-<style scoped>
-.potion-card-content {
-  background-color: rgba(150, 150, 150, 0.2);
-  position: relative;
-  margin: 20px;
-  width: 200px;
-  height: 260px;
-  color: #fff;
-  border-radius: 16px;
-  box-shadow: 0px 0px 20px 1px black;
-}
-.name {
-  font-size: 1.6rem;
-  display: flex;
-  justify-content: center;
-}
-.potion-card-img {
-  width: 100%;
-  height: 50%;
-  border-radius: 16px 16px 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.potion-card-img > img {
-  width: 90%;
-  height: 90%;
-  border-radius: 16px 16px 0 0;
-  object-fit: contain;
-}
-
-.btn {
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  bottom: 0px;
-  border: none;
-  background-color: black;
-  color: aliceblue;
-  font-size: 1.6rem;
-  border-radius: 0 0 16px 16px;
-}
-.potion-card-content:hover {
-  animation-name: scaling;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-.ingredients {
-  font-size: 1.2rem;
-  display: flex;
-  flex-wrap: wrap;
-}
-.ingredient1 {
-  display: flex;
-  width: 100%;
-  margin-top: 8px;
-  position: relative;
-}
-.ingredient2 {
-  display: flex;
-  width: 100%;
-  margin-top: 8px;
-  position: relative;
-}
-.ingredient-name {
-  margin-left: 10px;
-}
-.ingredient-count {
-  position: absolute;
-  right: 15px;
-}
-
-.potion-card-content:not(:hover) {
-  animation: unhoverEffect 0.5s forwards;
-}
-
-@keyframes unhoverEffect {
-  0% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes scaling {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.05);
-  }
-}
-</style>
+<style scoped></style>

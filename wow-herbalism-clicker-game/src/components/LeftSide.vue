@@ -1,4 +1,5 @@
 <template>
+  <q-btn @click="testing()">Hello</q-btn>
   <div class="content">
     <FlowerCard
       name="Friedensblume"
@@ -172,6 +173,7 @@
 </template>
 
 <script>
+import { toEditorSettings } from "typescript/lib/tsserverlibrary";
 import FlowerCard from "./FlowerCard.vue";
 export default {
   name: "LeftSide",
@@ -184,6 +186,11 @@ export default {
   props: {
     player: {
       type: Object,
+    },
+  },
+  methods: {
+    testing() {
+      this.$store.commit("showStats");
     },
   },
 };

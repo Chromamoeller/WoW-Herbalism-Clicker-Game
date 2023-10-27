@@ -39,6 +39,20 @@ const store = createStore({
       },
       herbalismClassicLevel: 1,
     },
+    potions: {
+      smallHealPotion: {
+        name: "Einfacher Heiltrank",
+        count: 0,
+        ingredient1: {
+          name: "Friedensblume",
+          count: 3,
+        },
+        ingredient2: {
+          name: "leere Phiole",
+          count: 1,
+        },
+      },
+    },
   },
   mutations: {
     collectHerbs(state, herb) {
@@ -51,6 +65,9 @@ const store = createStore({
         state.currentIndex++;
       }
       state.player.herbalismClassicLevel++;
+    },
+    showStats(state) {
+      console.log(state.player.herbs);
     },
   },
   actions: {

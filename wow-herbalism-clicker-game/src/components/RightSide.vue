@@ -1,20 +1,15 @@
 <template>
   <div class="content">
-    <PotionCard2 />
-    <PotionCard2 />
-    <PotionCard2 />
-    <PotionCard2 />
-    <PotionCard2 />
-    <PotionCard2 />
+    <PotionCard />
   </div>
 </template>
 
 <script>
-import PotionCard2 from "./PotionCard2.vue";
+import PotionCard from "./PotionCard.vue";
 
 export default {
   name: "RightSide",
-  components: { PotionCard2 },
+  components: { PotionCard },
 };
 </script>
 
@@ -34,6 +29,7 @@ export default {
   height: 100%;
   border-left: 1px solid black;
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   background-color: rgb(255, 255, 255);
